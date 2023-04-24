@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: boug-ftp-deploy
+  labels:
+    app: boug-ftp
+  namespace: bougainville
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: boug-ftp
+  template:
+    metadata:
+      labels:
+        app: boug-ftp
+    spec:
+      containers:
+      - name: boug-ftp
+        image: fauria/vsftpd
+        ports:
+        - containerPort: 20
+        - containerPort: 21
+        env:
+          - name: PASV_ADDRESS
+            valueFrom:
+              configMapKeyRef:
+                name: bougainville-configmap
+                key: pasv_address
+          - name: FTP_USER
+            valueFrom:
+              secretKeyRef:
+                name: bougainville-secret
+                key: ftp_user
+          - name: FTP_PASS
+            valueFrom:
+              secretKeyRef:
+                name: bougainville-secret
+                key: ftp_pass

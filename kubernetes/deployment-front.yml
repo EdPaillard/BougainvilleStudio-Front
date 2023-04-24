@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: boug-client-deploy
+  labels:
+    app: boug-client
+  namespace: bougainville
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: boug-client
+  template:
+    metadata:
+      labels:
+        app: boug-client
+    spec:
+      containers:
+      - name: boug-client
+        image: 162.19.66.30:7000/boug_client:v0.0.1
+        ports:
+        - containerPort: 80
+        env:
+          - name: BACKEND_URL
+            valueFrom:
+              configMapKeyRef:
+                name: bougainville-configmap
+                key: backend_url
+          - name: BACKEND_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: bougainville-configmap
+                key: backend_port

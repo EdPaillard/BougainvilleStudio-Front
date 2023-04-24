@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: boug-server-deploy
+  labels:
+    app: boug-server
+  namespace: bougainville
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: boug-server
+  template:
+    metadata:
+      labels:
+        app: boug-server
+    spec:
+      containers:
+      - name: boug-server
+        image: 162.19.66.30:7000/boug_server:v0.0.1
+        ports:
+        - containerPort: 4000
+        env:
+          - name: PASV_ADDRESS
+            valueFrom:
+              configMapKeyRef:
+                name: bougainville-configmap
+                key: pasv_address
+          - name: FTP_USER
+            valueFrom:
+              secretKeyRef:
+                name: bougainville-secret
+                key: ftp_user
+          - name: FTP_PASS
+            valueFrom:
+              secretKeyRef:
+                name: bougainville-secret
+                key: ftp_pass
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: bougainville-secret
+                key: psql_user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: bougainville-secret
+                key: psql_password
+          - name: POSTGRES_DB
+            valueFrom:
+              configMapKeyRef:
+                name: bougainville-configmap
+                key: psql_dbname
+          - name: POSTGRES_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: bougainville-configmap
+                key: psql_host
+          - name: POSTGRES_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: bougainville-configmap
+                key: psql_port
+  

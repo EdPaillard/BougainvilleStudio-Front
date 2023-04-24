@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bougainville-server-service
+  labels:
+    app: bougainville-server-service
+  namespace: bougainville
+spec:
+  type: LoadBalancer
+  selector:
+    app: bougainville-server
+  ports:
+    - name: http-back
+      port: 5000
+      targetPort: 4000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bougainville-client-service
+  labels:
+    app: bougainville-client-service
+  namespace: bougainville
+spec:
+  type: LoadBalancer
+  selector:
+      app: bougainville-client
+  ports:
+    - name: http-client
+      port: 80
+      targetPort: 80
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: bougainville-postgres-service
+  labels:
+    app: bougainville-postgres-service
+  namespace: bougainville
+spec:
+  selector:
+    app: bougainville-postgres
+  ports:
+    - port: 5432
+      targetPort: 5432
