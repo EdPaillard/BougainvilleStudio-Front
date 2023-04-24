@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: bougainville-pv
+  labels:
+    type: local
+    app: bougainville
+spec:
+  storageClassName: bougainville-storage
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/var/lib/postgresql/data/PG_BOUGAINVILLE"
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: bougainville-pvc
+  labels:
+    app: bougainville
+spec:
+  storageClassName: bougainville-storage
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi

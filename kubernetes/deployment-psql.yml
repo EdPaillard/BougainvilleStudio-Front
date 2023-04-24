@@ -46,4 +46,12 @@ spec:
               configMapKeyRef:
                 name: bougainville-configmap
                 key: psql_port
+        volumeMounts:
+        - mountPath: "/var/lib/postgresql/data"
+          name: bougainville-pv
+      volumes:
+        - name: bougainville-pv
+          persistentVolumeClaim:
+            claimName: bougainville-pvc
+
   
