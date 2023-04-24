@@ -8,7 +8,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: bougainville-server
+    app: boug-server
   ports:
     - name: http-back
       port: 5000
@@ -24,7 +24,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-      app: bougainville-client
+      app: boug-client
   ports:
     - name: http-client
       port: 80
@@ -39,7 +39,22 @@ metadata:
   namespace: bougainville
 spec:
   selector:
-    app: bougainville-postgres
+    app: boug-psql
   ports:
     - port: 5432
       targetPort: 5432
+
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: bougainville-ftp-service
+  labels:
+    app: bougainville-ftp-service
+  namespace: bougainville
+spec:
+  selector:
+    app: boug-ftp
+  ports:
+    - port: 21
+      targetPort: 21

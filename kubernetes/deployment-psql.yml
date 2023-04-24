@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: boug-psql-deploy
+  labels:
+    app: boug-psql
+  namespace: bougainville
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: boug-psql
+  template:
+    metadata:
+      labels:
+        app: boug-psql
+    spec:
+      containers:
+      - name: boug-psql
+        image: postgres:14.5
+        ports:
+        - containerPort: 5432
+        env:
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: bougainville-secret
+                key: psql_user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: bougainville-secret
+                key: psql_password
+          - name: POSTGRES_DB
+            valueFrom:
+              configMapKeyRef:
+                name: bougainville-configmap
+                key: psql_dbname
+          - name: POSTGRES_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: bougainville-configmap
+                key: psql_host
+          - name: POSTGRES_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: bougainville-configmap
+                key: psql_port
+  
