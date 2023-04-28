@@ -71,7 +71,6 @@
     align-items: center;
     height: calc(100% - 90px);
     padding: 40px;
-    word-break: break-word;
     box-sizing: border-box;
     color: white;
     font-weight: bold;
@@ -80,7 +79,13 @@
 .cartouche-text-inner {
     height: 200px;
     overflow: scroll;
+    scrollbar-width: none;
 }
+
+.cartouche-text-inner::-webkit-scrollbar {
+    /* display: none; */
+    width: 0;
+  }
 
 .cartouche-number {
     display: flex;
@@ -124,7 +129,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: black;
     font-size: 24px;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -154,12 +159,17 @@
     /* background-color: aqua; */
 }
 
+
 .cartouche-body:hover .cartouche-link-icon {
     opacity: 1;
 }
 
 .cartouche-body:hover .cartouche-frag-title {
     opacity: 1;
+}
+
+.cartouche-frag-title:hover {
+    color: white;
 }
 
 .green {

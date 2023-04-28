@@ -6,8 +6,6 @@ metadata:
   namespace: bougainville
 type: Opaque
 data:
-  ftp_user: Ym91Z2FpbnZpbGxl
-  ftp_pass: TW91c3F1ZVRhaXJlcyEz
   psql_user: cG9zdGdyZXM=
   psql_password: cG9zdGdyZXM=
 
@@ -23,4 +21,3 @@ data:
   psql_port: '5432'
   backend_url: '162.19.66.30'
   backend_port: '5000'
-  pasv_address: '162.19.66.30'
