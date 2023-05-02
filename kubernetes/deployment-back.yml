@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: boug-server
-        image: 162.19.66.30:7000/boug_server:v0.0.5
+        image: 162.19.66.30:7000/boug_server:v0.0.6
         ports:
         - containerPort: 4000
         env:
@@ -31,6 +31,16 @@ spec:
               secretKeyRef:
                 name: bougainville-secret
                 key: psql_password
+          - name: WEBDAV_USER
+            valueFrom:
+              secretKeyRef:
+                name: bougainville-secret
+                key: webdav_user
+          - name: WEBDAV_PASS
+            valueFrom:
+              secretKeyRef:
+                name: bougainville-secret
+                key: webdav_pass
           - name: POSTGRES_DB
             valueFrom:
               configMapKeyRef:
@@ -46,4 +56,9 @@ spec:
               configMapKeyRef:
                 name: bougainville-configmap
                 key: psql_port
+          - name: WEBDAV_URL
+            valueFrom:
+              configMapKeyRef:
+                name: bougainville-configmap
+                key: webdav_url
   
