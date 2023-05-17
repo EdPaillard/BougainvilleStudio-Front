@@ -9,7 +9,7 @@ data:
   psql_user: cG9zdGdyZXM=
   psql_password: cG9zdGdyZXM=
   webdav_user: Ym91Z2FpbnZpbGxl
-  webdav_pass: TW91c3F1ZVRhaXJlcyEz
+  webdav_pass: TW91c3F1ZVRhaXJlczM=
 
 ---
 apiVersion: v1
