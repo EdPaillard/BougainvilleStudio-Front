@@ -1,0 +1,42 @@
+.fragment-body {
+    color: white;
+    height: calc(100vh - 66px);
+    background-color: black;
+}
+
+.fragment-frags {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    height: 100%;
+}
+
+.fragment-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fragment__content {
+    height: 60%;
+    width: 80%;
+}
+
+.fragment-title {
+    font-size: 5em;
+    padding-left: 1em;
+    padding-top: 25px;
+    box-sizing: border-box;
+}
+
+.fragment-description {
+    padding-top: 1em;
+    padding-left: 6em;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.text {
+    color: aliceblue;
+}

@@ -10,19 +10,28 @@
     background-position: center;
 }
 
-.frag1 {
-    background-image: url('../../../public/frag1_cart.png');
+.frag {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-.frag2 {
+.cartouche-link-frag {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+
+.cartouche-link-frag:hover {
+    cursor: pointer;
+}
+
+/* .frag2 {
     background-image: url('../../../public/frag2_cart.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
+} */
 
 .user1 {
     background-image: url('../../../public/user1_cart.png');

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import logoBoug from '../../assets/logo_boug.png'
 import './Banner.css'
 
 export default function Banner() {
@@ -11,8 +12,8 @@ export default function Banner() {
     <div className='banner'>
       <div className='banner-content'>
         <div className='banner-nav'>
-          <a className='banner-logo-link banner-nav-elem' href='/home'><img className='banner-logo' src='./logo_boug.png' alt='Logo Bougainville' /></a>
-          <p className='banner-nav-elem'><a href='/home'>ACCUEIL</a></p>
+          <a className='banner-logo-link banner-nav-elem' href='/'><img className='banner-logo' src={logoBoug} alt='Logo Bougainville' /></a>
+          <p className='banner-nav-elem'><a href='/'>ACCUEIL</a></p>
           <p className='banner-nav-elem'><a href='/fragments'>FRAGMENTS</a></p>
         </div>
         <div className='banner-nav-end'>

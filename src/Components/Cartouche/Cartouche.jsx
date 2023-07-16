@@ -6,8 +6,9 @@ import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faArtstation } from '@fortawesome/free-brands-svg-icons';
 import './Cartouche.css';
+import { useNavigate } from 'react-router-dom';
 
-export default function Cartouche({image, color, text, artist, number, linkRS, title}) {
+export default function Cartouche({id, image, color, text, artist, number, linkRS, title}) {
 
   const socialNetwork = {
     "instagram": <FontAwesomeIcon className='cartouche-icon' icon={faInstagram}/>,
@@ -16,6 +17,7 @@ export default function Cartouche({image, color, text, artist, number, linkRS, t
     "artstation": <FontAwesomeIcon className='cartouche-icon' icon={faArtstation} />,
     "github": <FontAwesomeIcon className='cartouche-icon' icon={faGithub} />,
   };
+  const navigate = useNavigate();
 
   return (
     number === undefined ? <div className={`cartouche ${image}`} >
@@ -36,7 +38,7 @@ export default function Cartouche({image, color, text, artist, number, linkRS, t
               </div> }
           </div>
       </div>
-    </div> : <a href='/fragment/:id'><div className={`cartouche ${image}`} >
+    </div> : <div onClick={() => navigate(`/fragment/${id}`)} className="cartouche-link-frag cartouche frag" style={{ backgroundImage: `url(data:image/png;base64,${image})`}} >
       {/* <img className='cartouche-image' src={this.props.image} alt='cartouche background'/> */}
       <div className='cartouche-body'>
           <div className='cartouche-text'>
@@ -54,6 +56,6 @@ export default function Cartouche({image, color, text, artist, number, linkRS, t
           </div>
       </div>
     </div>
-    </a>
   )
+  // <a className='cartouche-link-frag' href={`/fragment/${number}`}>
 }

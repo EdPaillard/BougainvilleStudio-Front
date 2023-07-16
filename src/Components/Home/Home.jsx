@@ -1,6 +1,10 @@
-import React from 'react'
-import './Home.css'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
+import MoonLoader from "react-spinners/MoonLoader";
+
 import Cartouche from '../Cartouche/Cartouche'
+
+import './Home.css'
 
 export default function Home() {
 
@@ -8,6 +12,16 @@ export default function Home() {
     const user1Text = "Auteur, codeur, tracteur, à l'heure, Edouard n'a pas peur. Genre, du tout. De personne. Comme Lucky Luke."
     const user2Text = "Concept Artist, Story Artist, 3D Generalist, World Builder, Dream Maker, Murderer. Attention"
     const user3Text = "Musicien, Compositeur, Ingé Son, Sound Design, Ambiances sonores, Lol, Mdr, Je déconne. Deadlines."
+
+    const [sampleFrags, setSampleFrags] = useState()
+
+    useEffect(() => {
+        axios.get('http://localhost:4000/fragment/sample') // http://162.19.66.30:5000/fragment/sample
+        .then(res => {
+            console.log(res.data.data);
+            setSampleFrags(res.data.data);
+        })
+    }, [])
 
     return (
         <div className="home home-grid">
@@ -17,10 +31,10 @@ export default function Home() {
                 </div>
                 <div className='bottom-left'>
                     <div className='bottom-left-left'>
-                        <Cartouche image={'frag1'} color={'blue'} number={42} title={'METSABEE'}/>
+                        {sampleFrags ? <Cartouche id={sampleFrags[0].id} image={sampleFrags[0].miniature.mini} color={'blue'} number={sampleFrags[0].number} title={sampleFrags[0].title.toUpperCase()}/> : <MoonLoader color='rgba(250,250,250,1)'/>}
                     </div>
                     <div className='bottom-left-right'>
-                        <Cartouche image={'frag2'} color={'gold'} number={43} title={'HELPIS'}/>
+                        {sampleFrags ? <Cartouche id={sampleFrags[1].id} image={sampleFrags[1].miniature.mini} color={'gold'} number={sampleFrags[1].number} title={sampleFrags[1].title.toUpperCase()}/> : <MoonLoader color='rgba(250,250,250,1)'/>}
                     </div>
                 </div>
             </div>
