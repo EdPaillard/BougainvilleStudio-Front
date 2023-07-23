@@ -1,0 +1,129 @@
+.home {
+    height: calc(100vh - 96px);
+}
+
+.left {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 40px;
+}
+
+.bottom-left {
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 40px;
+    grid-row-gap: 0px; 
+}
+
+.right {
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 40px;
+    grid-row-gap: 0px;
+}
+
+.home-grid {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 40px;
+    grid-row-gap: 0px;
+    padding: 0 40px 40px 40px;
+    box-sizing: border-box;
+}
+
+.bottom-left-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-left-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 1280px) {
+    .home-grid {
+        background-color: black;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 40px;
+        padding: 0 80px 40px 80px;
+        box-sizing: border-box;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .home-grid {
+        background-color: black;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 0.5fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 40px;
+        padding: 0 80px 40px 80px;
+        box-sizing: border-box;
+        height: 100%;
+    } 
+
+    .right {
+        background-color: black;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 40px;
+    }
+
+    .home {
+        height: calc(100% - 96px);
+    }
+
+    .right-left {
+        height: 550px;
+    }
+
+    .right-center {
+        height: 550px;
+    }
+
+    .right-right {
+        height: 550px;
+    }
+
+    .bottom-left {
+        background-color: black;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 40px; 
+    }
+
+    .bottom-left-left {
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bottom-left-right {
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
