@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: boug-client
-        image: 162.19.66.30:7000/boug_client:v0.0.12
+        image: 162.19.66.30:7000/boug_client:v0.0.13
         ports:
         - containerPort: 80
         env:
