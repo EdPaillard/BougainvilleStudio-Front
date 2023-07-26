@@ -15,9 +15,8 @@ const FragmentsUI = (props: Props) => {
 
     useEffect(() => {
         const fetchDatas = async () => {
-            const response: AxiosResponse<Array<Fragment>> = await axios.get('http://localhost:4000/fragment')
+            const response: AxiosResponse<Array<Fragment>> = await axios.get(`${process.env.API_URL}/fragment`)
             const datas = response.data
-            console.log(datas)
             setFrags(datas)
         }
         fetchDatas()

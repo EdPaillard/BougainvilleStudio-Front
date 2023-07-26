@@ -9,23 +9,16 @@ type Props = {
 
 const ImageFragment = ({id, contentID}: Props) => {
 
-    const [content, setContent] = useState<Content>()
     const [fragMeta, setFragMeta] = useState<Fragment>()
 
     useEffect(() => {
         const fetchData = async () => {
-            const response: AxiosResponse<Fragment> = await axios.get(`http://localhost:4000/fragment/meta/${id}`)
+            const response: AxiosResponse<Fragment> = await axios.get(`${process.env.API_URL}/fragment/meta/${id}`)
             const datas = response.data
-            console.log(datas)
             setFragMeta(datas)
-
-            const responseContent: AxiosResponse<Content> = await axios.get(`http://localhost:4000/content/${contentID}`)
-            const datasContent = responseContent.data
-            console.log(datasContent)
-            setContent(datasContent)
         }
         fetchData()
-    }, [])
+    }, [id])
 
   return (
     <div>ImageFragment</div>

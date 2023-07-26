@@ -30,14 +30,10 @@ const FragmentUI: React.FunctionComponent<IFragmentUIProps> = ({params}) => {
       type: contentType[index]
     }));
     setContent(formatContent)
-    console.log(formatContent)
 
     let fragmentDisplay: Array<React.JSX.Element> = []
 
-    console.log(content)
-
     formatContent.forEach(element => {
-      console.log(element.type)
       switch (element.type) {
         case "text":
           fragmentDisplay.push(<TextFragment key={element.id} id={params.id} contentID={element.id} />)
@@ -56,9 +52,8 @@ const FragmentUI: React.FunctionComponent<IFragmentUIProps> = ({params}) => {
           break;
       }
     });
-    console.log(fragmentDisplay)
     setDisplayFragUI(fragmentDisplay)
-  }, [])
+  }, [params.id])
 
   return (
     <div className='bg-black flex justify-center items-center'>

@@ -19,13 +19,11 @@ export default function Home() {
 
     useEffect(() => {
         const fetchData = async () => {
-          const response: AxiosResponse<Array<Fragment>> = await axios.get('http://localhost:4000/fragment/sample')
-          console.log(response)
+          const response: AxiosResponse<Array<Fragment>> = await axios.get(`${process.env.API_URL}/fragment/sample`)
           const datas = response.data
           setSampleFrags(datas)
         }
         fetchData()
-        console.log(sampleFrags)
     }, [])
 
     return (

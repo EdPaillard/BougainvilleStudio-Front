@@ -1,6 +1,5 @@
 "use client"
 import * as React from 'react';
-import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
@@ -10,9 +9,9 @@ import { faArtstation } from '@fortawesome/free-brands-svg-icons';
 
 import { SocialMedias } from '../models/socialMedias';
 import DisplayCartouche from './DisplayCartouche';
+import FragmentCartouche from './FragmentCartouche';
 
 import './Cartouche.css';
-import FragmentCartouche from './FragmentCartouche';
 
 export interface ICartoucheProps {
     image: string,
@@ -54,8 +53,7 @@ export function Cartouche (props: ICartoucheProps) {
     });
     setContentID(contentID)
     setContentType(contentType)
-    console.log(props.image)
-  }, [])
+  }, [props.content])
 
   return (
     props.number === undefined ? (

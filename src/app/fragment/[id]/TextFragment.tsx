@@ -15,18 +15,18 @@ const TextFragment = ({id, contentID}: Props) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response: AxiosResponse<Fragment> = await axios.get(`http://localhost:4000/fragment/meta/${id}`)
+            const response: AxiosResponse<Fragment> = await axios.get(`${process.env.API_URL}/fragment/meta/${id}`)
             const datas = response.data
             setFragMeta(datas)
         }
         fetchData()
-    }, [])
+    }, [id])
   return (
     <div className='h-full flex flex-col justify-center align-middle '>
         { fragMeta ? (<div className='h-full w-auto flex flex-col'>
             <div className='h-auto p-16 w-auto box-border'>
-                <h1 className='text-white box-border text-5xl flex justify-between'>{fragMeta.title.toUpperCase()} <span>#{fragMeta.number}</span></h1>
-                <p className='text-white box-border mt-5 text-lg'>{fragMeta.description}</p>
+                <h1 className='text-white box-border text-5xl flex justify-between font-bold'>{fragMeta.title.toUpperCase()} <span>#{fragMeta.number}</span></h1>
+                <p className='text-white box-border mt-5 text-2xl'>{fragMeta.description}</p>
             </div>
             <div className='h-auto flex-1 flex justify-center text-white'>
               {texts[contentID]}

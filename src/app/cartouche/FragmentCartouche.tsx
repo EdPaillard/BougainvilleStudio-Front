@@ -14,7 +14,7 @@ type Props = {
 
 const FragmentCartouche = (props: Props) => {
   return (
-    <Link href="/fragment/[id]?content_id=[content_id]&content_type=[content_type]" as={`/fragment/${props.id}?content_id=${JSON.stringify(props.contentID)}&content_type=${JSON.stringify(props.contentType)}`} className="cartouche-link-frag cartouche frag" style={{ backgroundImage: `url(http://localhost:4000/miniature/${props.image})`}} > 
+    <Link href="/fragment/[id]?content_id=[content_id]&content_type=[content_type]" as={`/fragment/${props.id}?content_id=${JSON.stringify(props.contentID)}&content_type=${JSON.stringify(props.contentType)}`} className="cartouche-link-frag cartouche frag" style={{ backgroundImage: `url(${process.env.API_URL}/miniature/${props.image})`}} > 
       <div className={props.isFrags ? 'cartouche-body-frag' : 'cartouche-body'}>
           <div className='cartouche-text'>
             <div className='cartouche-number'>

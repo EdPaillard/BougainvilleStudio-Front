@@ -138,8 +138,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     color: black;
-    font-size: 24px;
+    font-size: 1.3em;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
@@ -223,5 +224,15 @@
         flex-direction: column;
         justify-content: center;
         height: 400px;
+    }
+
+    .cartouche-frag-title {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (min-width: 720px) and (max-width: 1440px) {
+    .cartouche-frag-title {
+        font-size: 1em;
     }
 }
