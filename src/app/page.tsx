@@ -1,6 +1,8 @@
 "use client"
 import React, { useState, useEffect } from 'react'
 import axios, { AxiosResponse } from 'axios';
+import https from 'https';
+import fs from 'fs';
 import MoonLoader from "react-spinners/MoonLoader";
 
 import { Cartouche } from './cartouche/Cartouche';
@@ -16,6 +18,12 @@ export default function Home() {
     const user3Text: string = "Musicien, Compositeur, Ingé Son, Sound Design, Ambiances sonores, Lol, Mdr, Je déconne. Deadlines."
 
     const [sampleFrags, setSampleFrags] = useState<Array<Fragment>>()
+
+    const certificate = fs.readFileSync('@/cert.pem')
+    const agent = new https.Agent({
+        cert: certificate, rejectUnauthorized: false
+    })
+    axios.defaults.httpsAgent = agent;
 
     useEffect(() => {
         const fetchData = async () => {

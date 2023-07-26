@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import axios, { AxiosResponse, CancelTokenSource } from 'axios'
-import { Content, Fragment } from '@/app/models/fragments'
-import { Stream } from 'stream'
+import { Fragment } from '@/app/models/fragments'
+import fs from 'fs';
+import https from 'https';
 import MoonLoader from 'react-spinners/MoonLoader'
 
 type Props = {
@@ -12,6 +13,12 @@ type Props = {
 const VideoFragment = ({id, contentID}: Props) => {
 
     const [fragMeta, setFragMeta] = useState<Fragment>()
+
+    const certificate = fs.readFileSync('@/cert.pem')
+    const agent = new https.Agent({
+        cert: certificate, rejectUnauthorized: false
+    })
+    axios.defaults.httpsAgent = agent;
 
     useEffect(() => {
         const fetchData = async () => {
