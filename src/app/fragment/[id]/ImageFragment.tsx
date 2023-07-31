@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios, { AxiosResponse } from 'axios'
 import { Fragment } from '@/app/models/fragments'
-import fs from 'fs';
 import https from 'https';
 
 type Props = {
@@ -13,9 +12,8 @@ const ImageFragment = ({id, contentID}: Props) => {
 
     const [fragMeta, setFragMeta] = useState<Fragment>()
 
-    const certificate = fs.readFileSync('@/cert.pem')
     const agent = new https.Agent({
-        cert: certificate, rejectUnauthorized: false
+        rejectUnauthorized: false
     })
     axios.defaults.httpsAgent = agent;
 

@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react'
 import axios, { AxiosResponse } from 'axios';
 import https from 'https';
-import fs from 'fs';
 import MoonLoader from "react-spinners/MoonLoader";
 
 import { Cartouche } from './cartouche/Cartouche';
@@ -12,16 +11,15 @@ import './Home.css'
 
 export default function Home() {
 
-    const mainText: string = "Bougainville est un projet artistique collaboratif crossmedia. Il vous plonge dans les aventures d'un capitaine de la Marine, lancé dans l'exploration balbutiante d'un vaste univers. Mêlant Grandes Découvertes et Odyssée, Bougainville recherche autant l'aventure que la réflexion sur l'Homme devant l'inconnu, l'imense, devant eux-mêmes ... La narration sera éclatée, explosée dans le temps, et publiée dans l'ordre de création sous forme de fragments. Il sera de la reponsabilité du lecteur de reconstruire une chronologie qui lui est propre, de se faire son opinion sur les faits présentés.";
-    const user1Text: string = "Auteur, codeur, tracteur, à l'heure, Edouard n'a pas peur. Genre, du tout. De personne. Comme Lucky Luke."
-    const user2Text: string = "Concept Artist, Story Artist, 3D Generalist, World Builder, Dream Maker, Murderer. Attention"
-    const user3Text: string = "Musicien, Compositeur, Ingé Son, Sound Design, Ambiances sonores, Lol, Mdr, Je déconne. Deadlines."
+    const mainText: JSX.Element = <span>Bougainville est un projet artistique collaboratif crossmedia. Il vous plonge dans les aventures d&apos;un capitaine de la Marine, lancé dans l&apos;exploration balbutiante d&apos;un vaste univers. Mêlant Grandes Découvertes et Odyssée, Bougainville recherche autant l&apos;aventure que la réflexion sur l&apos;Homme devant l&apos;inconnu, l&apos;immense, devant eux-mêmes...<br/>La narration sera éclatée, explosée dans le temps, et publiée dans l&apos;ordre de création sous forme de fragments. <em className='underline underline-offset-4'>Laissez-vous embarquer, le Bougainville n&apos;attend que vous</em>...</span>; // Laissez-vous embarquer, suivez Hautbrave ou sondez-le...
+    const user1Text: JSX.Element = <span>Auteur, codeur, tracteur, à l&apos;heure, Edouard n&apos;a pas peur. Genre, du tout. De personne. Comme Lucky Luke.</span>
+    const user2Text: JSX.Element = <span>Concept Artist, Story Artist, 3D Generalist, World Builder, Dream Maker, Murderer. Attention</span>
+    const user3Text: JSX.Element = <span>Musicien, Compositeur, Ingé Son, Sound Design, Ambiances sonores, Lol, Mdr, Je déconne. Deadlines.</span>
 
     const [sampleFrags, setSampleFrags] = useState<Array<Fragment>>()
 
-    const certificate = fs.readFileSync('@/cert.pem')
     const agent = new https.Agent({
-        cert: certificate, rejectUnauthorized: false
+        rejectUnauthorized: false
     })
     axios.defaults.httpsAgent = agent;
 

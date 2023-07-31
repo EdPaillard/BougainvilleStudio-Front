@@ -1,0 +1,130 @@
+.register-body {
+    height: calc(100vh - 96px);
+    background-color: black;
+}
+
+/* .typewriter h3:first-child {
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .10em;
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+    height: 50px;
+  } */
+
+  /* .typewriter h3:nth-child(2) {
+    overflow: hidden;
+    border-right: .15em solid rgba(255, 166, 0, 0);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .10em;
+    animation: 
+      typing 3.5s steps(40, end) 3.5s,
+      blink-caret .75s step-end 3.5s infinite;
+    height: 50px;
+  }
+   */
+  /* @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  } */
+  
+  /* @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  } */
+
+  .css-typing h3 {
+    border-right: .15em solid orange;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .css-typing h3:nth-child(1) {
+    width: 22em;
+    -webkit-animation: type 2s steps(40, end);
+    animation: type 2s steps(40, end);
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
+  
+  .css-typing h3:nth-child(2) {
+    width: 25em;
+    opacity: 0;
+    -webkit-animation: type2 2s steps(40, end);
+    animation: type2 2s steps(40, end);
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes type {
+    0% {
+      width: 0;
+    }
+    99.9% {
+      border-right: .15em solid orange;
+    }
+    100% {
+      border: none;
+    }
+  }
+  
+  @-webkit-keyframes type {
+    0% {
+      width: 0;
+    }
+    99.9% {
+      border-right: .15em solid orange;
+    }
+    100% {
+      border: none;
+    }
+  }
+  
+  @keyframes type2 {
+    0% {
+      width: 0;
+    }
+    1% {
+      opacity: 1;
+    }
+    99.9% {
+      border-right: .15em solid orange;
+    }
+    100% {
+      opacity: 1;
+      border: none;
+    }
+  }
+  
+  @-webkit-keyframes type2 {
+    0% {
+      width: 0;
+    }
+    1% {
+      opacity: 1;
+    }
+    99.9% {
+      border-right: .15em solid orange;
+    }
+    100% {
+      opacity: 1;
+      border: none;
+    }
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+  @-webkit-keyframes blink {
+    50% {
+      border-color: tranparent;
+    }
+  }

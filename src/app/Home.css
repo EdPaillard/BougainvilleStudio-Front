@@ -1,5 +1,13 @@
 .home {
     height: calc(100vh - 96px);
+    /* background-image: url('../../public/logo_boug.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; */
+}
+
+.top-left {
+    grid-row: 1/span 2
 }
 
 .left {
@@ -17,7 +25,8 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 40px;
-    grid-row-gap: 0px; 
+    grid-row-gap: 0px;
+    align-items: end;
 }
 
 .right {
@@ -44,12 +53,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    aspect-ratio: 1;
+    width: auto;
+    height: auto;
 }
 
 .bottom-left-right {
     display: flex;
     justify-content: center;
     align-items: center;
+    aspect-ratio: 1;
+    width: auto;
+    height: auto;
+}
+
+.bottom-nav-bar {
+    display: none;
 }
 
 @media screen and (max-width: 1280px) {
@@ -63,6 +82,10 @@
         padding: 0 40px 40px 40px;
         box-sizing: border-box;
         height: 100%;
+    }
+
+    .top-left {
+        grid-row: 1
     }
 }
 
@@ -115,15 +138,35 @@
 
     .bottom-left-left {
         height: 300px;
+        width: auto;
         display: flex;
         justify-content: center;
         align-items: center;
+        aspect-ratio: 1;
+        margin: 0 auto;
     }
 
     .bottom-left-right {
         height: 300px;
+        width: auto;
         display: flex;
         justify-content: center;
         align-items: center;
+        aspect-ratio: 1;
+        margin: 0 auto;
+    }
+
+    .top-left {
+        grid-row: 1
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .bottom-nav-bar {
+        display: flex;
+    }
+
+    .top-left {
+        grid-row: 1
     }
 }

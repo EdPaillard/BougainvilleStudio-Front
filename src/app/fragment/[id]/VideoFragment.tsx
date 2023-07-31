@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import axios, { AxiosResponse, CancelTokenSource } from 'axios'
 import { Fragment } from '@/app/models/fragments'
-import fs from 'fs';
 import https from 'https';
 import MoonLoader from 'react-spinners/MoonLoader'
 
@@ -14,9 +13,8 @@ const VideoFragment = ({id, contentID}: Props) => {
 
     const [fragMeta, setFragMeta] = useState<Fragment>()
 
-    const certificate = fs.readFileSync('@/cert.pem')
     const agent = new https.Agent({
-        cert: certificate, rejectUnauthorized: false
+        rejectUnauthorized: false
     })
     axios.defaults.httpsAgent = agent;
 
@@ -39,7 +37,7 @@ const VideoFragment = ({id, contentID}: Props) => {
                 <p className='text-white box-border mt-5 text-2xl'>{fragMeta.description}</p>
             </div>
             <div className='h-auto flex-1 flex justify-center'>
-                <video className=' h-auto w-2/4 mx-auto' controls autoPlay><source src={`${process.env.API_URL}/content/${contentID}`} type='video/mp4'/></video> 
+                <video className=' h-auto w-2/4 mx-auto' autoPlay><source src={`${process.env.API_URL}/content/${contentID}`} type='video/mp4'/></video> 
             </div>
         </div> ): (<MoonLoader color='rgba(250,250,250,1)'/>)}
     </div>

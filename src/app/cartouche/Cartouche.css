@@ -20,6 +20,7 @@
     height: 100%;
     width: 100%;
     background-size: cover;
+    aspect-ratio: 1/1;
 }
 
 .cartouche-link-frag:hover {
@@ -98,22 +99,34 @@
 
 .cartouche-number {
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
 }
 
 .cartouche-number-inner {
     height: fit-content;
     width: fit-content;
-    font-size: 24px;
+    margin-top: 90px;
 }
 
 .cartouche-paragraphe {
     text-align: justify;
+    padding: 0 3rem;
 }
 
 .cartouche-footer {
     /* background-color: crimson; */
+    display: flex;
+    position: absolute;
+    height: 5px;
+    bottom: 0;
+    width: 100%;
+    transition: height 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+}
+
+.cartouche-display-footer {
     display: flex;
     position: absolute;
     height: 5px;
@@ -139,18 +152,17 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: black;
-    font-size: 1.3em;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    font-weight: 1000;
 }
 
 .cartouche-link-icon {
-    opacity: 0;
+    /* opacity: 0; */
     height: 50%;
     width: auto;
     margin: 0 20px 0 20px;
-    transition: opacity 0.3s ease-in-out;
+    /* transition: opacity 0.3s ease-in-out; */
 }
 
 .cartouche-icon {
@@ -165,10 +177,16 @@
 }
 
 .cartouche-body:hover .cartouche-footer {
+    height: 67px;
+    /* background-color: aqua; */
+}
+
+.cartouche-body:hover .cartouche-display-footer {
     height: 90px;
     /* background-color: aqua; */
 }
 
+/* Page fragment */
 .cartouche-body-frag:hover .cartouche-footer {
     height: 50px;
     /* background-color: aqua; */
@@ -188,10 +206,6 @@
 
 .cartouche-body-frag:hover .cartouche-frag-title {
     opacity: 1;
-}
-
-.cartouche-frag-title:hover {
-    color: white;
 }
 
 .green {

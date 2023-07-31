@@ -20,12 +20,12 @@
 
 .banner-logo {
     height: 100%;
-    width: 72px;
+    width: 60px;
 }
 
 .banner-logo-link {
     height: 80%;
-    width: 72px;
+    width: 60px;
 }
 
 .banner-nav-elem {
@@ -107,4 +107,24 @@
 
 .nobg {
     background-color: black;
+}
+
+.banner-profil-icon-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .banner-nav-elem:not(:first-child) {
+        display: none;
+    }
+
+    .banner-creds-btn {
+        display: none !important;
+    }
+
+    .banner-profil-icon-mobile {
+        display: block;
+        height: 50%;
+        cursor: pointer;
+    }
 }

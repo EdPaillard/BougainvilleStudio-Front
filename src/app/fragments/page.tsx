@@ -1,7 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
-import fs from 'fs';
 import https from 'https';
 import MoonLoader from "react-spinners/MoonLoader"
 import { Cartouche } from '../cartouche/Cartouche';
@@ -15,9 +14,8 @@ const FragmentsUI = (props: Props) => {
 
     const [frags, setFrags] = useState<Array<Fragment>>()
 
-    const certificate = fs.readFileSync('@/cert.pem')
     const agent = new https.Agent({
-        cert: certificate, rejectUnauthorized: false
+        rejectUnauthorized: false
     })
     axios.defaults.httpsAgent = agent;
 

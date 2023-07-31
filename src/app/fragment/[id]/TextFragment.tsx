@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios, { AxiosResponse } from 'axios'
-import { Content, Fragment } from '@/app/models/fragments'
+import https from 'https';
+import { Fragment } from '@/app/models/fragments'
 import MoonLoader from 'react-spinners/MoonLoader'
 
 import { texts } from '@/app/models/writtenFrags'
@@ -12,6 +13,11 @@ type Props = {
 
 const TextFragment = ({id, contentID}: Props) => {
     const [fragMeta, setFragMeta] = useState<Fragment>()
+
+    const agent = new https.Agent({
+        rejectUnauthorized: false
+    })
+    axios.defaults.httpsAgent = agent;
 
     useEffect(() => {
         const fetchData = async () => {

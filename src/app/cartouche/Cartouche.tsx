@@ -19,7 +19,7 @@ export interface ICartoucheProps {
     id?: number,
     number?: number,
     title?: string,
-    text?: string,
+    text?: JSX.Element,
     linkRS?: SocialMedias,
     artist?: string,
     content?: [
@@ -66,7 +66,7 @@ export function Cartouche (props: ICartoucheProps) {
       title={props.title} 
       image={props.image} />
     ) : (
-      contentID?.length !== 0 ? (
+      contentID !== undefined ? (
       <FragmentCartouche
         image={props.image} 
         id={props.id!}
