@@ -20,7 +20,7 @@ spec:
       - name: boug-client
         image: 162.19.66.30:7000/boug_client:v0.0.23
         ports:
-        - containerPort: 3000
+        - containerPort: 80
         env:
           - name: REACT_APP_API_URL
             valueFrom:

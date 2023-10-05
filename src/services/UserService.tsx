@@ -8,7 +8,7 @@ export async function listUsers(): Promise<Array<User>> {
     // })
     // axios.defaults.httpsAgent = agent;
 
-    const response: AxiosResponse<Array<User>> = await axios.get(`${process.env.REACT_APP_API_URL}/user`)
+    const response: AxiosResponse<Array<User>> = await axios.get(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/user`)
     const datas = response.data
 
     return datas;
@@ -21,7 +21,7 @@ export async function getUserByID(id: string, token: string): Promise<User> {
     // })
     // axios.defaults.httpsAgent = agent;
 
-    const response: AxiosResponse<User> = await axios.get(`${process.env.REACT_APP_API_URL}/user/${id}`, {headers: {
+    const response: AxiosResponse<User> = await axios.get(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/user/${id}`, {headers: {
         'Authorization': `Bearer ${token}`
     }})
     const datas = response.data
@@ -35,7 +35,7 @@ export async function signUser(user: any): Promise<User> {
     // })
     // axios.defaults.httpsAgent = agent;
 
-    const response: AxiosResponse<User> = await axios.post(`${process.env.REACT_APP_API_URL}/login`, JSON.stringify({"user" : user}), {headers: {
+    const response: AxiosResponse<User> = await axios.post(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/login`, JSON.stringify({"user" : user}), {headers: {
         'Content-Type': 'application/json'
     }, withCredentials: true})
 
@@ -49,7 +49,7 @@ export async function signOut(token: string): Promise<User> {
     // })
     // axios.defaults.httpsAgent = agent;
 
-    const response: AxiosResponse<User> = await axios.get(`${process.env.REACT_APP_API_URL}/logout`, {headers: {
+    const response: AxiosResponse<User> = await axios.get(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/logout`, {headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
     }, withCredentials: true})
@@ -64,7 +64,7 @@ export async function registerUser(user: any): Promise<User> {
     // })
     // axios.defaults.httpsAgent = agent;
 
-    const response: AxiosResponse<User> = await axios.post(`${process.env.REACT_APP_API_URL}/register`, JSON.stringify({"user" : user}), {headers: {
+    const response: AxiosResponse<User> = await axios.post(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/register`, JSON.stringify({"user" : user}), {headers: {
         'Content-Type': 'application/json'
     }, withCredentials: true})
 
@@ -78,7 +78,7 @@ export async function modifyUser(id: string, body: any, token: string): Promise<
     // })
     // axios.defaults.httpsAgent = agent;
 
-    const response: AxiosResponse<User> = await axios.put(`${process.env.REACT_APP_API_URL}/user/${id}`, body, {headers: {
+    const response: AxiosResponse<User> = await axios.put(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/user/${id}`, body, {headers: {
         'Content-Type': 'multipart/form-data',
         'Authorization': `Bearer ${token}`
     }, withCredentials: true})
@@ -93,7 +93,7 @@ export async function getNewerToken(token: string): Promise<number> {
     // })
     // axios.defaults.httpsAgent = agent;
     try {
-        const response: AxiosResponse<User> = await axios.get(`${process.env.REACT_APP_API_URL}/user/refresh_session`, {headers: {
+        const response: AxiosResponse<User> = await axios.get(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/user/refresh_session`, {headers: {
             'Authorization': `Bearer ${token}`
         }, withCredentials: true})
 
@@ -110,7 +110,7 @@ export async function getNewerToken(token: string): Promise<number> {
 
 export async function getCurrentUser(token: string): Promise<User> {
     try {
-        const response: AxiosResponse<User> = await axios.get(`${process.env.REACT_APP_API_URL}/user/current`, {headers: {
+        const response: AxiosResponse<User> = await axios.get(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/user/current`, {headers: {
             'Authorization': `Bearer ${token}`
         }, withCredentials: true})
 
