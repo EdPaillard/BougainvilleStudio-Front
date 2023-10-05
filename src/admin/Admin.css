@@ -1,0 +1,25 @@
+.adminheight {
+    height: calc(100vh - 96px);
+}
+
+.creationcontainer {
+    position: relative;
+    overflow: hidden;
+}
+
+.creationbox {
+    position: absolute;
+    transition: transform 0.5s ease-in-out;
+}
+
+.center {
+    transform: translateX(0);
+}
+
+.admin-right {
+    transform: translateX(100%);
+}
+
+.admin-left {
+    transform: translateX(-100%)
+}

@@ -1,0 +1,27 @@
+.modify-profil-container {
+    width: 1018px;
+    background: linear-gradient(180deg, #262D33 -3.38%, #1D1E20 78.58%)
+}
+
+.modify-profil {
+    height: 100%;
+    background: linear-gradient(180deg, #262D33 -3.38%, #1D1E20 78.58%)
+
+}
+
+.modify-profil-banner {
+    background: rgba(58, 62, 71, 0.5)
+}
+
+.modify-profil-input {
+    height: 42px;
+    padding: 10px;
+    background: rgba(59,63,72,.5);
+}
+
+@media screen and (max-width: 1050px) {
+    .modify-profil-container {
+        width: 100vw;
+        padding: 0 !important;
+    }
+}
