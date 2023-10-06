@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: boug-client
-        image: 162.19.66.30:7000/boug_client:v0.0.26
+        image: 162.19.66.30:7000/boug_client:v0.0.27
         ports:
         - containerPort: 80
         env:
@@ -32,3 +32,8 @@ spec:
               configMapKeyRef:
                 name: bougainville-configmap
                 key: backend_port
+          - name: REACT_APP_SECRET_KEY
+              valueFrom:
+              secretKeyRef:
+                name: bougainville-secret
+                key: secret_key

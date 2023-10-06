@@ -66,5 +66,10 @@ spec:
               secretKeyRef:
                 name: bougainville-secret
                 key: admin_email
+          - name: REACT_APP_SECRET_KEY
+              valueFrom:
+              secretKeyRef:
+                name: bougainville-secret
+                key: secret_key
 
   

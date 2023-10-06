@@ -11,6 +11,7 @@ data:
   webdav_user: Ym91Z2FpbnZpbGxl
   webdav_pass: TW91c3F1ZVRhaXJlczM=
   admin_email: ZWQucGFpbGxhcmRAZ21haWwuY29t
+  secret_key: RDBIK04xU0pSY2FBS01QM2VvcXhBSVJ0TERPVEZPWjV2b3ZDNzd1S25zNEl1VkJCYXV6TUFJcDBML1NBcWs1Wg==
 
 ---
 apiVersion: v1
