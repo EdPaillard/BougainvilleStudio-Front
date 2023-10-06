@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: boug-server
-        image: 162.19.66.30:7000/boug_server:v0.0.31
+        image: 162.19.66.30:7000/boug_server:v0.0.32
         ports:
         - containerPort: 4001
         env:
