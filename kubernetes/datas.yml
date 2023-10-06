@@ -10,6 +10,7 @@ data:
   psql_password: cG9zdGdyZXM=
   webdav_user: Ym91Z2FpbnZpbGxl
   webdav_pass: TW91c3F1ZVRhaXJlczM=
+  admin_email: ZWQucGFpbGxhcmRAZ21haWwuY29t
 
 ---
 apiVersion: v1

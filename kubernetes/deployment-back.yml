@@ -61,4 +61,10 @@ spec:
               configMapKeyRef:
                 name: bougainville-configmap
                 key: webdav_url
+          - name: ADMIN_EMAIL
+            valueFrom:
+              secretKeyRef:
+                name: bougainville-secret
+                key: admin_email
+
   

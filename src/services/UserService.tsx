@@ -59,6 +59,7 @@ export async function signOut(token: string): Promise<User> {
 }
 
 export async function registerUser(user: any): Promise<User> {
+    console.log(process.env.REACT_APP_API_URL)
     // const agent = new https.Agent({
     //     rejectUnauthorized: false
     // })
