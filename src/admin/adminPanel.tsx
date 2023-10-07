@@ -26,6 +26,7 @@ export default function AdminPanel() {
         console.log(jsonUser)
         console.log(user.token)
         setUser(user)
+        console.log(process.env.REACT_APP_SECRET_KEY!)
         const decodedToken = await jose.jwtVerify(user.token, textEncoder.encode(process.env.REACT_APP_SECRET_KEY!)) // jwt.verify(user.token, process.env.SECRET_KEY!)
         console.log(decodedToken)
         if (decodedToken.payload['typ'] === 'admin') {

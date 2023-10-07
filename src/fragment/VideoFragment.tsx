@@ -34,8 +34,8 @@ const VideoFragment = ({id, contentID}: Props) => {
             </div> */}
             <div className='h-auto flex-1 flex justify-center'>
                 <video className='video h-auto w-full mx-auto' controls autoPlay>
-                    <source src={`${process.env.REACT_APP_API_URL}/content/${contentID.toString()}`} type='video/mp4'/>
-                    <source src={`${process.env.REACT_APP_API_URL}/content/${contentID.toString()}`} type='video/quickfile'/>
+                    <source src={`http://${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/content/${contentID.toString()}`} type='video/mp4'/>
+                    <source src={`http://${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/content/${contentID.toString()}`} type='video/quickfile'/>
                 </video> 
             </div>
         </div> ): (<MoonLoader color='rgba(250,250,250,1)'/>)}

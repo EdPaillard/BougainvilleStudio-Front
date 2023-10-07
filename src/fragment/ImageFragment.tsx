@@ -33,7 +33,7 @@ const ImageFragment = ({id, contentID}: Props) => {
                 <p className='text-white box-border mt-5 text-2xl'>{fragMeta.description}</p>
             </div> */}
             <div className='h-auto flex-1 flex justify-center'>
-                <img className='video h-auto w-full mx-auto' src={`${process.env.REACT_APP_API_URL}/content/${contentID.toString()}`} alt='Fragment Content'/>
+                <img className='video h-auto w-full mx-auto' src={`http://${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/content/${contentID.toString()}`} alt='Fragment Content'/>
             </div>
         </div> ): (<MoonLoader color='rgba(250,250,250,1)'/>)}
     </div>

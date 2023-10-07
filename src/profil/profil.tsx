@@ -41,7 +41,7 @@ export default function ProfilPage() {
         <div className='profil-banner box-border pb-5'>
           <div className='profil-inner-banner pt-10 mx-auto box-border'>
             <div className='flex'>
-              <div className='w-52 h-52 flex'><object className=' w-40 h-40 border border-white' data={`${process.env.REACT_APP_API_URL}/user/pic/${user.id}`} type='image/png'><FontAwesomeIcon className=' w-24 h-24' icon={faUser}/></object></div>
+              <div className='w-52 h-52 flex'><object className=' w-40 h-40 border border-white' data={`http://${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/user/pic/${user.id}`} type='image/png'><FontAwesomeIcon className=' w-24 h-24' icon={faUser}/></object></div>
               <div className='ml-6 flex flex-col h-auto'>
                 <h1 className='h-12 text-white font-bold text-4xl'>{user.pseudo}</h1>
                 <p className='h-full flex items-center text-white'>{user.email}</p>

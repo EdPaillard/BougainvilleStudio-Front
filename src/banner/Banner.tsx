@@ -98,7 +98,7 @@ export default function Banner() {
           <FontAwesomeIcon className='cursor-pointer h-6' icon={faExpand} onClick={fullscreen} />
         </div>
         <div className='banner-nav-end'>
-          {user && user.id ? imageLoaded ? <img onClick={() => setProfilPage(!profilPage)} className='banner-profil-icon rounded-full' src={`${process.env.REACT_APP_API_URL}/user/pic/${user.id}`} alt='User Profil' onError={handleImageError}/> : <FontAwesomeIcon onClick={() => setProfilPage(!profilPage)} className='banner-profil-icon' icon={faUser} /> :
+          {user && user.id ? imageLoaded ? <img onClick={() => setProfilPage(!profilPage)} className='banner-profil-icon rounded-full' src={`http://${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/user/pic/${user.id}`} alt='User Profil' onError={handleImageError}/> : <FontAwesomeIcon onClick={() => setProfilPage(!profilPage)} className='banner-profil-icon' icon={faUser} /> :
           <div className='flex items-center justify-end banner-creds-btn'>
             <a href='/login' className='mr-5 hover:text-gray-300 transition-colors'>Connexion</a>
             <a href='/register' className='hover:text-gray-300 hover:border-gray-300 transition-colors border p-2 rounded-lg '>S&apos;enregistrer</a>

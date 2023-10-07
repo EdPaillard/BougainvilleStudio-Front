@@ -33,7 +33,7 @@ function AudioFragment({id, contentID}: Props) {
                 <p className='text-white box-border mt-5 text-2xl'>{fragMeta.description}</p>
             </div> */}
             <div className='h-auto flex justify-center'>
-                <audio className=' h-auto w-3/4 mx-auto' controls autoPlay><source src={`${process.env.REACT_APP_API_URL}/content/${contentID}`} type='audio/wav'/></audio> 
+                <audio className=' h-auto w-3/4 mx-auto' controls autoPlay><source src={`http://${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/content/${contentID}`} type='audio/wav'/></audio> 
             </div>
         </div> ): (<MoonLoader color='rgba(250,250,250,1)'/>)}
     </div>

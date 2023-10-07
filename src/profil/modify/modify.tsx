@@ -72,7 +72,7 @@ export default function UserModify() {
       <div className='modify-profil-container mx-auto h-auto px-5'>
         <div className='modify-profil-banner h-24'>
         <div className='flex items-center px-8'>
-          <object className='w-16 h-16 mr-8' data={`${process.env.REACT_APP_API_URL}/user/pic/${user.id}`} type='image/png'>
+          <object className='w-16 h-16 mr-8' data={`http://${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/user/pic/${user.id}`} type='image/png'>
             <FontAwesomeIcon className='banner-profil-icon' icon={faUser}/>
           </object>
           <a href={`/profil/${user.id}`}><h2 className='text-white text-2xl'>{user.pseudo}</h2></a>
@@ -81,7 +81,7 @@ export default function UserModify() {
         <div className='modify-profil-form h-auto mt-5 pb-10 box-border'>
           <a href={`/profil/${user.id}`}><div className='w-full flex items-end justify-end'><span className='text-right underline text-gray-100 hover:text-white'>Retour au profil</span></div></a>
           <form onSubmit={formik.handleSubmit} className='mt-10'>
-            <div className='flex justify-between'><object className='w-40 h-40' data={`${process.env.REACT_APP_API_URL}/user/pic/${user.id}`} type='image/png'><FontAwesomeIcon className='banner-profil-icon' icon={faUser} /> </object><input type='file' name='profil_img' onChange={(event) => {formik.setFieldValue('profil_img', event.currentTarget.files![0]);}}/></div>
+            <div className='flex justify-between'><object className='w-40 h-40' data={`http://${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/user/pic/${user.id}`} type='image/png'><FontAwesomeIcon className='banner-profil-icon' icon={faUser} /> </object><input type='file' name='profil_img' onChange={(event) => {formik.setFieldValue('profil_img', event.currentTarget.files![0]);}}/></div>
             <div className='flex flex-col'>
               <div className=' border-b border-white'>
                 <h2 className='text-white text-2xl mt-5'>Général</h2>
