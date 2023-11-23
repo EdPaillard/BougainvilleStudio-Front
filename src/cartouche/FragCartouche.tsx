@@ -38,7 +38,7 @@ const FragCartouche = ({image, content, color, id, number, title}: Props) => {
     }, [content, color])
 
   return (
-    contentID !== undefined ? <a href={`/fragment/${id}?content_id=${JSON.stringify(contentID)}&content_type=${JSON.stringify(contentType)}`} className='cart-full overflow-clip overflow-x-visible h-full w-full frag' style={{ backgroundImage: `url(${process.env.REACT_APP_API_URL}/miniature/${image})`}}>
+    contentID !== undefined ? <a href={`/fragment/${id}?content_id=${JSON.stringify(contentID)}&content_type=${JSON.stringify(contentType)}`} className='cart-full overflow-clip overflow-x-visible h-full w-full frag' style={{ backgroundImage: `url(http://${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/miniature/${image})`}}>
         <div className='flex-1 flex justify-center items-center res-cartouche-body'>
             <p className='text-4xl font-extrabold mt-20'>#{number}</p>
         </div>

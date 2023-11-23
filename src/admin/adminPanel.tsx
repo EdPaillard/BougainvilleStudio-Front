@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import * as jose from 'jose'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { User } from '../models/user';
 import ContentCreation from './ContentCreation';
+// import * as jose from 'jose'
 
 import 'react-tabs/style/react-tabs.css';
 import './Admin.css'
@@ -20,16 +20,16 @@ export default function AdminPanel() {
   useEffect(() => {
     const decodeToken = async () => {
       if (jsonUser !== null) {
-        const textEncoder = new TextEncoder()
+        // const textEncoder = new TextEncoder()
         const user: User = JSON.parse(jsonUser)
-        console.log(user)
-        console.log(jsonUser)
-        console.log(user.token)
         setUser(user)
-        console.log(process.env.REACT_APP_SECRET_KEY!)
-        const decodedToken = await jose.jwtVerify(user.token, textEncoder.encode(process.env.REACT_APP_SECRET_KEY!)) // jwt.verify(user.token, process.env.SECRET_KEY!)
-        console.log(decodedToken)
-        if (decodedToken.payload['typ'] === 'admin') {
+        // console.log(user)
+        // console.log(jsonUser)
+        // console.log(user.token)
+        // console.log(process.env.REACT_APP_SECRET_KEY!)
+        // const decodedToken = await jose.jwtVerify(user.token, textEncoder.encode(process.env.REACT_APP_SECRET_KEY!)) // jwt.verify(user.token, process.env.SECRET_KEY!)
+        // console.log(decodedToken)
+        if (user.role.admin) {
           setIsAdmin(true)
         }
       }
